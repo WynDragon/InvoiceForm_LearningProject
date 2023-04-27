@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,13 @@ namespace InvoiceForm
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// By default, the Main Window should display all available invoices within the data grid
     /// </summary>
     public partial class MainWindow : Window
     {
         //In order to call upon another window, we need window objects
         ItemLogic itemLogic = new ItemLogic();
+        QueryLogic queryLogic = new QueryLogic();
 
         /// <summary>
         /// Initializes the window upon it being opened
@@ -29,6 +32,18 @@ namespace InvoiceForm
         public MainWindow()
         {
             InitializeComponent();
+
+            //this item creates an empty data set
+            DataSet allItems = new DataSet();
+            //This following line of code is waiting on a function to be wriiten in the QueryLogic class called InitializeDataGrid;
+            //This function should 
+            //allItems = queryLogic.InitializeDataGrid();    
+
+            //sets data grid to read only - you cannot edit items within the data grid
+            DisplayItemsDataGrid.IsReadOnly = true;
+            //the item source is where the data grid gets the data from.
+            //Data View is a method of enumerating through the table's rows and columns to display data
+            DisplayItemsDataGrid.ItemsSource = allItems.Tables[0].AsDataView();
         }
 
         /// <summary>
@@ -62,7 +77,8 @@ namespace InvoiceForm
                 //Displays the ItemLogic window
                 itemLogic.ShowDialog();
             }
-            catch(Exception ex) {
+            catch(Exception ex) 
+            {
                 //will generate an automated message explaining where the error occurred
                 throw new Exception(ex.Message);
             }

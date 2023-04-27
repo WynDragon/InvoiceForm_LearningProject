@@ -49,5 +49,28 @@ namespace InvoiceForm
         //        throw new Exception(ex.Message);
         //    }
         //}
+
+        /// <summary>
+        /// This function will return data as a data set in order to display it within a data grid
+        /// </summary>
+        /// <returns></returns>
+        public DataSet InitializeDataGrid()
+        {
+            try
+            {
+                //sql query is stored in a string
+                string sqlStatement = "SELECT * FROM Items";
+                //I'm not actually sure what iRef is, only that it's necessary
+                int iRef = 0;
+                //currently we don't have the logic set up for this yet,
+                //but as a TO DO is in the DatabaseConnection class, set up a function called ExecuteSQLStatement
+                //this function will execute the query above in sqlStatement and return the results as a data set
+                return db.ExecuteSQLStatement(sqlStatement, iRef);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

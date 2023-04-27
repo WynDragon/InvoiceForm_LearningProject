@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="SearchBtn" Content="Search" HorizontalAlignment="Left" Margin="681,62,0,0" VerticalAlignment="Top" Width="91" Click="SearchBtn_Click"/>
-        <GroupBox x:Name="ItemsGridBox" Header="Items" Height="NaN" Margin="10,10,124,10" Width="NaN">
-            <StackPanel Orientation="Horizontal">
-                <DataGrid Height="390" IsReadOnly="True" Width="542"/>
-                <Button x:Name="EditItemsBtn" Content="Edit Items" Width="90" Click="EditItemsBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <GroupBox x:Name="ItemsGridBox" Header="Items" Height="NaN" Margin="10,10,10,10" Width="NaN">
+            <StackPanel Orientation="Horizontal" Margin="0,0,-2,0" Width="NaN">
+                <DataGrid x:Name="DisplayItemsDataGrid" Height="390" IsReadOnly="True" Width="542"/>
+                <Button x:Name="SearchBtn" Content="Search" Width="95" Click="SearchBtn_Click" Height="41"/>
+                <Button x:Name="EditItemsBtn" Content="Edit Items" Width="97" Click="EditItemsBtn_Click" VerticalAlignment="Center" Height="41"/>
             </StackPanel>
         </GroupBox>
 

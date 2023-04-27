@@ -16,6 +16,11 @@ namespace InvoiceForm
 {
     /// <summary>
     /// Interaction logic for Search.xaml
+    /// The Search Window should allow the user to do one of two things:
+    ///     -search items based on criteria
+    ///     -search for all items
+    /// Search Window should return the results as a data set
+    /// When the proper item(s) have been found, return the user to the MainWindow
     /// </summary>
     public partial class Search : Window
     {
