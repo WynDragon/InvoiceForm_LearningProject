@@ -8,6 +8,7 @@ namespace InvoiceForm
 {
     /// <summary>
     /// Database connection logic
+    /// This class is for database connection strings
     /// </summary>
     internal class DatabaseConnection
     {
