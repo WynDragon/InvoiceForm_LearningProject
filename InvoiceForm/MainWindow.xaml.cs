@@ -24,5 +24,16 @@ namespace InvoiceForm
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// button to switch to Search window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //this button switches which window is active
+            //switch to Search Window
+        }
     }
 }
