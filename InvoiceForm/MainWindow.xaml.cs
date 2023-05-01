@@ -35,7 +35,7 @@ namespace InvoiceForm
 
             //this item creates an empty data set
             DataSet allItems = new DataSet();
-            //This following line of code is waiting on a function to be wriiten in the QueryLogic class called InitializeDataGrid;
+            //This following line of code is waiting on a function to be wriiten in the Query 1 Logic class called InitializeDataGrid;
             //This function should 
             //allItems = queryLogic.InitializeDataGrid();    
 
