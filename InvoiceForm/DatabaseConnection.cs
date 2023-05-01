@@ -47,7 +47,8 @@ namespace InvoiceForm
         }
         
         /// <summary>
-        /// 
+        /// This method takes a passed in SQL statement and executes it.
+        /// The resulting values from the query are returned in a dataset.
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="iref"></param>
@@ -76,6 +77,7 @@ namespace InvoiceForm
                         conn.Close();
                     }
 
+                    //return query results in dataset
                     return ds;
                 }
             }
