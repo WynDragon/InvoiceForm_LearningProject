@@ -25,7 +25,6 @@ namespace InvoiceForm
         //In order to call upon another window, we need window objects
         ItemLogic itemLogic = new ItemLogic();
         QueryLogic queryLogic = new QueryLogic();
-        Search search = new Search();
 
         /// <summary>
         /// Initializes the window upon it being opened
@@ -36,6 +35,9 @@ namespace InvoiceForm
 
             //this item creates an empty data set
             DataSet allItems = new DataSet();
+            //This following line of code is waiting on a function to be wriiten in the QueryLogic class called InitializeDataGrid;
+            //This function should fill the allItems table with all available items from the Items table
+            allItems = queryLogic.InitializeDataGrid();    
             //This following line of code is waiting on a function to be wriiten in the Query 1 Logic class called InitializeDataGrid;
             //This function should 
             allItems = queryLogic.InitializeDataGrid();    
@@ -45,6 +47,12 @@ namespace InvoiceForm
             //the item source is where the data grid gets the data from.
             //Data View is a method of enumerating through the table's rows and columns to display data
             DisplayItemsDataGrid.ItemsSource = allItems.Tables[0].AsDataView();
+
+            //string[] itemList = { "One", "Two" };
+
+            //populate combobox
+            DefaultCombo.Items.Add("One");
+            DefaultCombo.Items.Add("Two");
         }
 
         /// <summary>

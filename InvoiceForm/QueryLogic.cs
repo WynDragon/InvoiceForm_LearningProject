@@ -62,8 +62,6 @@ namespace InvoiceForm
                 string sqlStatement = "SELECT * FROM Items";
                 //I'm not actually sure what iRef is, only that it's necessary
                 int iRef = 0;
-                //currently we don't have the logic set up for this yet,
-                //but as a TO DO is in the DatabaseConnection class, set up a function called ExecuteSQLStatement
                 //this function will execute the query above in sqlStatement and return the results as a data set
                 return db.ExecuteSQLStatement(sqlStatement, iRef);
             }

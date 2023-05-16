@@ -10,8 +10,9 @@
         <GroupBox x:Name="ItemsGridBox" Header="Items" Height="NaN" Margin="10,10,10,10" Width="NaN">
             <StackPanel Orientation="Horizontal" Margin="0,0,-2,0" Width="NaN">
                 <DataGrid x:Name="DisplayItemsDataGrid" Height="390" IsReadOnly="True" Width="542"/>
-                <Button x:Name="SearchBtn" Content="Search" Width="95" Click="SearchBtn_Click" Height="41"/>
-                <Button x:Name="EditItemsBtn" Content="Edit Items" Width="97" Click="EditItemsBtn_Click" VerticalAlignment="Center" Height="41"/>
+                <Button x:Name="SearchBtn" Content="Search" Width="31" Click="SearchBtn_Click" Height="41"/>
+                <Button x:Name="EditItemsBtn" Content="Edit Items" Width="40" Click="EditItemsBtn_Click" VerticalAlignment="Center" Height="41"/>
+                <ComboBox x:Name="DefaultCombo" Width="120" Height="37"/>
             </StackPanel>
         </GroupBox>
 
