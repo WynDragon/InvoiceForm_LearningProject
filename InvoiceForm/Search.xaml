@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Search" Height="450" Width="800">
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" Margin="207,109,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="DefaultCombo" Margin="10,92,680,307"/>
+
     </Grid>
 </Window>

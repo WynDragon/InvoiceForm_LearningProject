@@ -25,19 +25,20 @@ namespace InvoiceForm
         //In order to call upon another window, we need window objects
         ItemLogic itemLogic = new ItemLogic();
         QueryLogic queryLogic = new QueryLogic();
+        Search search = new Search();
 
         /// <summary>
         /// Initializes the window upon it being opened
         /// </summary>
         public MainWindow()
-        {
+        {   
             InitializeComponent();
 
             //this item creates an empty data set
             DataSet allItems = new DataSet();
             //This following line of code is waiting on a function to be wriiten in the Query 1 Logic class called InitializeDataGrid;
             //This function should 
-            //allItems = queryLogic.InitializeDataGrid();    
+            allItems = queryLogic.InitializeDataGrid();    
 
             //sets data grid to read only - you cannot edit items within the data grid
             DisplayItemsDataGrid.IsReadOnly = true;
@@ -55,33 +56,47 @@ namespace InvoiceForm
         {
             //this button switches which window is active
             //switch to Search Window
-        }
-
-        /// <summary>
-        /// Button to switch to ItemsLogic window
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditItemsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //this button switches which window is active
-            //try/catch blocks prevent errors from slipping through and potentially causing
-            //unintended memory leaks; good WPF writing formats dictate every function is wrapped
-            //in a try/catch block
             try
             {
                 //This line hides the current window
                 this.Hide();
-                //Create a new instance of ItemLogic window
-                ItemLogic itemLogic = new ItemLogic();
+                //Create a new instance of Search window
+                Search search = new Search();
                 //Displays the ItemLogic window
-                itemLogic.ShowDialog();
+                search.ShowDialog();
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 //will generate an automated message explaining where the error occurred
                 throw new Exception(ex.Message);
             }
         }
+
+            /// <summary>
+            /// Button to switch to ItemsLogic window
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+            private void EditItemsBtn_Click(object sender, RoutedEventArgs e)
+            {
+                //this button switches which window is active
+                //try/catch blocks prevent errors from slipping through and potentially causing
+                //unintended memory leaks; good WPF writing formats dictate every function is wrapped
+                //in a try/catch block
+                try
+                {
+                    //This line hides the current window
+                    this.Hide();
+                    //Create a new instance of ItemLogic window
+                    ItemLogic itemLogic = new ItemLogic();
+                    //Displays the ItemLogic window
+                    itemLogic.ShowDialog();
+                }
+                catch(Exception ex) 
+                {
+                    //will generate an automated message explaining where the error occurred
+                    throw new Exception(ex.Message);
+                }
+            }
     }
 }

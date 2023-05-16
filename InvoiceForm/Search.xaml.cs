@@ -11,33 +11,80 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace InvoiceForm
 {
     /// <summary>
     /// Interaction logic for Search.xaml
-    /// The Search Window should allow the user to do one of two things:
-    ///     -search items based on criteria
-    ///     -search for all items
-    /// Search Window should return the results as a data set
-    /// When the proper item(s) have been found, return the user to the MainWindow
     /// </summary>
     public partial class Search : Window
     {
-        /// <summary>
-        /// Initializes the Search Window
-        /// </summary>
+        ItemLogic itemLogic = new ItemLogic();
+        MainWindow mainWindow = new MainWindow();
         public Search()
         {
             InitializeComponent();
+            DefaultCombo.ItemsSource = new List<string> { "Alice", "Bob", "Charlie" };
         }
 
-        //TO DO:
-        //Set up combo box for search parameters
-        //Search parameters should be by item parameters:
-        //-Name, Cost, Vendor, ItemType
-        //Set up display to show the results of the database queries
-        //all business logic should be in a separate area.
-        //All Queries should be in a Query Class.
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Button to switch to Main window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //this button switches which window is active
+            //try/catch blocks prevent errors from slipping through and potentially causing
+            //unintended memory leaks; good WPF writing formats dictate every function is wrapped
+            //in a try/catch block
+            try
+            {
+                //This line hides the current window
+                this.Hide();
+                //Create a new instance of ItemLogic window
+                MainWindow mainWindow = new MainWindow();
+                //Displays the ItemLogic window
+                mainWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //will generate an automated message explaining where the error occurred
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Button to switch to ItemsLogic window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditItemsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //this button switches which window is active
+            //try/catch blocks prevent errors from slipping through and potentially causing
+            //unintended memory leaks; good WPF writing formats dictate every function is wrapped
+            //in a try/catch block
+            try
+            {
+                //This line hides the current window
+                this.Hide();
+                //Create a new instance of ItemLogic window
+                ItemLogic itemLogic = new ItemLogic();
+                //Displays the ItemLogic window
+                itemLogic.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //will generate an automated message explaining where the error occurred
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
